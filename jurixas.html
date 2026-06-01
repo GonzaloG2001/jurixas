@@ -1069,9 +1069,9 @@ textarea.form-input{height:84px;resize:none;}
     <div class="feat"><div class="feat-icon">⊕</div><div class="feat-title">Trabajo en equipo</div><div class="feat-desc">Invitá colegas a tu firma con un código único. Todos ven los mismos datos en tiempo real.</div></div>
   </div>
   <div class="splash-plans" id="splash-planes" style="padding-top:44px;">
-    <div class="splash-plans-title">Planes</div>
-    <div class="plans-grid" style="grid-template-columns:1fr 1fr 1fr;max-width:1080px;margin:0 auto;">
-      <div class="plan-card">
+    <div class="splash-plans-title">Plan</div>
+    <div style="max-width:420px;margin:0 auto;">
+      <div class="plan-card featured">
         <div class="plan-name">🧍 Independiente</div>
         <div class="plan-price" style="font-size:32px;">$38.999<span style="font-size:14px;">/mes</span></div>
         <div class="plan-period">ARS · 1 abogado · uso personal</div>
@@ -1083,36 +1083,7 @@ textarea.form-input{height:84px;resize:none;}
           <li>Búsqueda instantánea de expedientes</li>
           <li>Historial cronológico por caso</li>
         </ul>
-        <button class="btn btn-ghost btn-full" onclick="goTo('register')">Empezar solo →</button>
-      </div>
-      <div class="plan-card featured">
-        <div class="plan-name">🏢 Estudio ★</div>
-        <div class="plan-price" style="font-size:32px;">$49.999<span style="font-size:14px;">/mes</span></div>
-        <div class="plan-period">ARS · incluye hasta 3 usuarios</div>
-        <ul class="plan-features">
-          <li>Todo lo del plan Independiente</li>
-          <li>Hasta 3 usuarios incluidos</li>
-          <li>Adicional: $10.000/mes por usuario extra</li>
-          <li>Roles: Administrador, Abogado, Asistente</li>
-          <li>Permisos personalizables por módulo</li>
-          <li>Asignación de casos, clientes y leads</li>
-        </ul>
-        <button class="btn btn-primary btn-full" onclick="goTo('register')">Activar mi estudio →</button>
-      </div>
-      <div class="plan-card">
-        <div class="plan-name">🏛️ Corporativo</div>
-        <div class="plan-price" style="font-size:32px;">$89.999<span style="font-size:14px;">/mes</span></div>
-        <div class="plan-period">ARS · incluye hasta 10 usuarios</div>
-        <ul class="plan-features">
-          <li>Todo lo del plan Estudio</li>
-          <li>Hasta 10 usuarios incluidos</li>
-          <li>Onboarding personalizado</li>
-          <li>Soporte prioritario (2 hs)</li>
-          <li>Reportes avanzados por equipo</li>
-          <li>Exportación con branding del estudio</li>
-          <li>Adicional: $10.000/mes por usuario extra</li>
-        </ul>
-        <button class="btn btn-ghost btn-full" onclick="goTo('register')">Activar mi estudio →</button>
+        <button class="btn btn-primary btn-full" onclick="goTo('register')">Empezar ahora →</button>
       </div>
     </div>
     <p style="text-align:center;font-size:12px;color:var(--text-muted);margin-top:18px;">🎉 Beta gratuita — acceso completo sin límites · Sin tarjeta requerida</p>
@@ -1231,39 +1202,10 @@ textarea.form-input{height:84px;resize:none;}
 
       <!-- Plan -->
       <div style="margin-bottom:14px;">
-        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--text-muted);margin-bottom:10px;">Plan</div>
-        <div id="rf-plan-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
-          <div id="rp-ind" class="type-card selected" onclick="regSelPlan('independiente')" style="padding:14px;cursor:pointer;">
-            <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px;">🧍 Independiente</div>
-            <div style="font-size:11px;color:var(--text-muted);">Abogado solo</div>
-            <div style="font-size:10px;color:var(--gold-dim);margin-top:4px;font-family:'DM Mono',monospace;">$38.999/mes</div>
-          </div>
-          <div id="rp-est" class="type-card" onclick="regSelPlan('estudio')" style="padding:14px;cursor:pointer;position:relative;">
-            <div style="position:absolute;top:8px;right:8px;font-size:8px;font-family:'DM Mono',monospace;background:var(--gold);color:var(--bg);padding:1px 5px;border-radius:10px;">POPULAR</div>
-            <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px;">🏢 Estudio</div>
-            <div style="font-size:11px;color:var(--text-muted);">Hasta 3 usuarios</div>
-            <div style="font-size:10px;color:var(--gold-dim);margin-top:4px;font-family:'DM Mono',monospace;">$49.999/mes</div>
-          </div>
-          <div id="rp-corp" class="type-card" onclick="regSelPlan('corporativo')" style="padding:14px;cursor:pointer;">
-            <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px;">🏛️ Corporativo</div>
-            <div style="font-size:11px;color:var(--text-muted);">Hasta 10 usuarios</div>
-            <div style="font-size:10px;color:var(--gold-dim);margin-top:4px;font-family:'DM Mono',monospace;">$89.999/mes</div>
-          </div>
-        </div>
+        <input type="hidden" id="rp-ind" value="independiente">
       </div>
 
-      <!-- Unirse a firma (debajo de planes) -->
-      <div style="padding:10px 0 14px;border-bottom:1px solid var(--border);margin-bottom:14px;">
-        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:12.5px;color:var(--text-dim);">
-          <input type="checkbox" id="rf-unirse-check" onchange="regToggleUnirse(this.checked)" style="width:15px;height:15px;accent-color:var(--gold);">
-          Tengo un código de invitación (unirme a una firma existente)
-        </label>
-        <div id="rf-unirse-box" style="display:none;margin-top:10px;">
-          <input id="rf-codigo" class="form-input" placeholder="ABC123" maxlength="6" style="text-transform:uppercase;letter-spacing:.2em;font-family:'DM Mono',monospace;font-size:18px;text-align:center;" oninput="this.value=this.value.toUpperCase()" autocomplete="off">
-          <div style="font-size:11px;color:var(--text-muted);margin-top:4px;text-align:center;">El administrador del estudio te da este código de 6 letras</div>
-          <div style="font-size:10.5px;color:var(--text-dim);margin-top:6px;text-align:center;line-height:1.5;background:var(--surface2);border-radius:var(--r);padding:8px 12px;">Al unirte como miembro no necesitás pagar un plan individual. Tu acceso queda cubierto por la suscripción del estudio.</div>
-        </div>
-      </div>
+
 
       <!-- Datos personales -->
       <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--text-muted);margin-bottom:10px;">Tus datos</div>
@@ -1276,10 +1218,10 @@ textarea.form-input{height:84px;resize:none;}
       <!-- Teléfono removido del registro inicial — se completará en el perfil posterior -->
       <input type="hidden" id="rf-tel" value="">
 
-      <!-- Estudio (oculto cuando se une por código) -->
+      <!-- Nombre profesional -->
       <div id="rf-firma-section">
-        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--text-muted);margin:14px 0 10px;">Tu estudio</div>
-        <div class="form-group"><label class="form-label">Nombre del estudio *</label><input id="rf-firma" class="form-input" placeholder="Estudio Jurídico García" autocomplete="off"></div>
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--text-muted);margin:14px 0 10px;">Tu nombre profesional</div>
+        <div class="form-group"><label class="form-label">Nombre del estudio / profesional *</label><input id="rf-firma" class="form-input" placeholder="Dr. García — Abogado" autocomplete="off"></div>
       </div>
 
       <button id="rf-submit" class="btn btn-primary btn-full" style="margin-top:20px;padding:14px;font-size:14px;" onclick="doRegistro()">
@@ -1942,7 +1884,7 @@ textarea.form-input{height:84px;resize:none;}
           <div class="form-row">
             <div class="form-group"><label class="form-label">Plan</label>
               <select id="nf-plan" class="form-input" style="background:#0e0e14;border-color:#1e1e28;">
-                <option value="trial">Trial 1 mes (gratis)</option><option value="independiente">🧍 Independiente — $38.999/mes</option><option value="estudio" selected>🏢 Estudio — $49.999/mes (3 usuarios)</option><option value="corporativo">🏛️ Corporativo — $89.999/mes (10 usuarios)</option>
+                <option value="trial">Trial 1 mes (gratis)</option><option value="independiente" selected>🧍 Independiente — $38.999/mes</option>
               </select>
             </div>
             <div class="form-group"><label class="form-label">Activar inmediatamente</label>
@@ -2273,29 +2215,8 @@ function selectPlan(p){ REG.plan=p; }
    REGISTRO — formulario único
 ════════════════════════════════════════ */
 let REG_PLAN = 'independiente';
-
-function regSelPlan(p){
-  REG_PLAN = p;
-  document.getElementById('rp-ind')?.classList.toggle('selected', p==='independiente');
-  document.getElementById('rp-est')?.classList.toggle('selected', p==='estudio');
-  document.getElementById('rp-corp')?.classList.toggle('selected', p==='corporativo');
-}
-
-function regToggleUnirse(checked){
-  const box = document.getElementById('rf-unirse-box');
-  const firmaSection = document.getElementById('rf-firma-section');
-  const planGrid = document.getElementById('rf-plan-grid');
-  if(box) box.style.display = checked ? 'block' : 'none';
-  if(firmaSection) firmaSection.style.display = checked ? 'none' : '';
-  if(planGrid) planGrid.style.display = checked ? 'none' : '';
-  if(checked){
-    document.getElementById('rp-ind')?.classList.remove('selected');
-    document.getElementById('rp-est')?.classList.remove('selected');
-    document.getElementById('rp-corp')?.classList.remove('selected');
-  } else {
-    regSelPlan(REG_PLAN);
-  }
-}
+function regSelPlan(p){ REG_PLAN = 'independiente'; }
+function regToggleUnirse(checked){}
 
 async function doRegistro(){
   const errEl = document.getElementById('reg-err');
@@ -2322,16 +2243,15 @@ async function doRegistro(){
   const pass    = (document.getElementById('rf-pass')?.value    || '');
   const tel     = (document.getElementById('rf-tel')?.value     || '').trim();
   const firma   = (document.getElementById('rf-firma')?.value   || '').trim();
-  const unirse  = document.getElementById('rf-unirse-check')?.checked || false;
-  const codigo  = (document.getElementById('rf-codigo')?.value  || '').trim().toUpperCase();
+  const unirse  = false;
+  const codigo  = '';
 
   // Validate & sanitize (length limits match DB constraints)
   if(!nombre || nombre.length > 100)   return showE('Nombre inválido (máx. 100 caracteres).');
   if(!apellido || apellido.length > 100) return showE('Apellido inválido (máx. 100 caracteres).');
   if(!email || !email.includes('@') || email.length > 255) return showE('Email inválido.');
   if(pass.length < 8 || pass.length > 72) return showE('Contraseña debe tener entre 8 y 72 caracteres.');
-  if(!unirse && (!firma || firma.length < 2 || firma.length > 200)) return showE('Nombre del estudio inválido (2-200 caracteres).');
-  if(unirse && codigo.length !== 6) return showE('El código de invitación debe tener 6 caracteres.');
+  if(!firma || firma.length < 2 || firma.length > 200) return showE('Nombre profesional inválido (2-200 caracteres).');
   // Basic XSS check on free-text fields
   const xssPattern = /<|>|script|javascript:/i;
   if(xssPattern.test(nombre) || xssPattern.test(apellido) || xssPattern.test(firma))
@@ -5329,114 +5249,17 @@ function openPerfilConfig(){
   const esCorporativo = isCorporativoPlan();
   const esIndependiente = !esEstudio;
 
-  // Plan section: admin sees plan switch, members see membership info
-  let planSection = '';
-  if(esAdmin){
-    // Datos del plan actual
-    const planActualNombre = PLAN_NOMBRES[planActual] || 'Independiente';
-    const planActualPrecio = PLAN_PRICES[planActual] || PLAN_PRICES.independiente;
-    const planActualIcono = esCorporativo ? '🏛️' : (esEstudio ? '🏢' : '🧍');
-    const planActualPillClass = esCorporativo ? 'pill-ent' : (esEstudio ? 'pill-pro' : 'pill-basic');
-    const incluidos = planUsuariosIncluidos(planActual);
-    const extraPorUsuario = planPrecioExtraUsuario(planActual);
-    const miembrosActuales = C.miembros.length;
-    const usuariosExtra = Math.max(0, miembrosActuales - incluidos);
-    const costoExtras = usuariosExtra * extraPorUsuario;
-
-    let bloquePlanActual = '';
-    if(esEstudio){
-      bloquePlanActual = `
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:12px;">
-          <div style="font-size:12px;color:var(--text-dim);line-height:1.6;">
-            <strong style="color:var(--text);">Plan ${planActualNombre}</strong> · Incluye ${incluidos} usuarios<br>
-            Miembros actuales: <span style="font-family:'DM Mono',monospace;color:var(--gold);">${miembrosActuales}</span>/${incluidos}${usuariosExtra>0?` · <span style="color:var(--gold);">+$${costoExtras.toLocaleString('es-AR')}/mes extras</span>`:''}<br>
-            Adicional: $${extraPorUsuario.toLocaleString('es-AR')}/mes por usuario extra
-          </div>
-        </div>`;
-    }
-
-    // Botones de cambio de plan según el plan actual
-    let botonesCambio = '';
-    if(esIndependiente){
-      // Desde Independiente: subir a Estudio o Corporativo
-      botonesCambio = `
-        <div style="background:var(--gold-light);border:1px solid rgba(201,168,76,.2);border-radius:var(--r);padding:14px;margin-bottom:12px;">
-          <div style="font-size:12px;color:var(--text-dim);line-height:1.6;">
-            <strong style="color:var(--gold);">🏢 Plan Estudio</strong> — $49.999/mes<br>
-            Incluye hasta 3 usuarios · $10.000/mes por usuario extra<br>
-            Roles (Admin, Abogado, Asistente) · Permisos por módulo · Asignación de casos
-          </div>
-        </div>
-        <button class="btn btn-primary" style="width:100%;font-size:13px;margin-bottom:10px;" onclick="confirmarCambioPlan('estudio')">
-          ⬆ Pasar a Plan Estudio →
-        </button>
-        <div style="background:rgba(76,123,201,.06);border:1px solid rgba(76,123,201,.2);border-radius:var(--r);padding:14px;margin-bottom:12px;">
-          <div style="font-size:12px;color:var(--text-dim);line-height:1.6;">
-            <strong style="color:var(--blue);">🏛️ Plan Corporativo</strong> — $89.999/mes<br>
-            Incluye hasta 10 usuarios · $10.000/mes por usuario extra<br>
-            Onboarding personalizado · Soporte prioritario · Reportes avanzados
-          </div>
-        </div>
-        <button class="btn btn-ghost" style="width:100%;font-size:13px;" onclick="confirmarCambioPlan('corporativo')">
-          ⬆ Pasar a Plan Corporativo →
-        </button>`;
-    } else if(planActual === 'estudio'){
-      // Desde Estudio: subir a Corporativo o bajar a Independiente
-      botonesCambio = `
-        <div style="background:rgba(76,123,201,.06);border:1px solid rgba(76,123,201,.2);border-radius:var(--r);padding:14px;margin-bottom:12px;">
-          <div style="font-size:12px;color:var(--text-dim);line-height:1.6;">
-            <strong style="color:var(--blue);">🏛️ Plan Corporativo</strong> — $89.999/mes<br>
-            Incluye hasta 10 usuarios · Soporte prioritario · Reportes avanzados<br>
-            Ideal si tu equipo crece y necesitás más usuarios incluidos.
-          </div>
-        </div>
-        <button class="btn btn-primary" style="width:100%;font-size:13px;margin-bottom:10px;" onclick="confirmarCambioPlan('corporativo')">
-          ⬆ Pasar a Plan Corporativo →
-        </button>
-        <button class="btn btn-ghost" style="width:100%;font-size:12px;" onclick="confirmarCambioPlan('independiente')">
-          ⬇ Cambiar a plan Independiente
-        </button>
-        <div style="font-size:10.5px;color:var(--text-muted);margin-top:6px;line-height:1.4;">⚠ Al bajar a Independiente se deshabilitarán las funciones de equipo. Los miembros existentes perderán acceso.</div>`;
-    } else if(planActual === 'corporativo'){
-      // Desde Corporativo: bajar a Estudio o Independiente
-      botonesCambio = `
-        <button class="btn btn-ghost" style="width:100%;font-size:12px;margin-bottom:8px;" onclick="confirmarCambioPlan('estudio')">
-          ⬇ Cambiar a plan Estudio
-        </button>
-        <button class="btn btn-ghost" style="width:100%;font-size:12px;" onclick="confirmarCambioPlan('independiente')">
-          ⬇ Cambiar a plan Independiente
-        </button>
-        <div style="font-size:10.5px;color:var(--text-muted);margin-top:6px;line-height:1.4;">⚠ Al bajar de plan se reducirá el cupo de usuarios incluidos. Si tenés más miembros que el cupo del plan destino, se cobrarán como usuarios extra.</div>`;
-    }
-
-    planSection = `
+  const planSection = `
     <div style="margin-top:24px;padding-top:18px;border-top:1px solid var(--border);">
       <div style="font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--gold);margin-bottom:12px;">Tu plan</div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
-        <span class="plan-pill ${planActualPillClass}" style="font-size:12px;padding:4px 12px;">${planActualIcono} ${planActualNombre}</span>
-        <span style="font-size:12px;color:var(--text-dim);">$${planActualPrecio.toLocaleString('es-AR')}/mes${esEstudio?` · hasta ${incluidos} usuarios`:' · 1 usuario'}</span>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <span class="plan-pill pill-basic" style="font-size:12px;padding:4px 12px;">🧍 Independiente</span>
+        <span style="font-size:12px;color:var(--text-dim);">$38.999/mes · 1 usuario</span>
       </div>
-      ${bloquePlanActual}
-      ${botonesCambio}
-    </div>`;
-  } else if(esEstudio){
-    // Member of a studio — show membership info, no plan switch
-    const planNombre = PLAN_NOMBRES[planActual] || 'Estudio';
-    const icono = esCorporativo ? '🏛️' : '🏢';
-    planSection = `
-    <div style="margin-top:24px;padding-top:18px;border-top:1px solid var(--border);">
-      <div style="font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--blue);margin-bottom:12px;">Tu membresía</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:14px;">
-        <div style="font-size:13px;color:var(--text);margin-bottom:6px;">${icono} Miembro de: <strong>${esc(CF?.nombre||'')}</strong></div>
-        <div style="font-size:12px;color:var(--text-dim);line-height:1.5;">
-          Plan del estudio: <span style="color:var(--gold);font-family:'DM Mono',monospace;">${planNombre}</span><br>
-          Rol: <span style="color:var(--gold);font-family:'DM Mono',monospace;">${CROL||'miembro'}</span><br>
-          Tu acceso está cubierto por la suscripción del estudio.<br>
-          No necesitás un plan individual.
-        </div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:12px;font-size:12px;color:var(--text-dim);line-height:1.6;">
+        Clientes y expedientes ilimitados · Agenda y recordatorios · Honorarios · Plantillas de documentos
       </div>
     </div>`;
-  }
 
   document.getElementById('m-title').textContent = 'Mi perfil';
   document.getElementById('m-body').innerHTML = `
